@@ -1,0 +1,4 @@
+# command-line-arguments
+ld: warning: -no_pie is deprecated when targeting new OS versions
+ld: warning: -no_pie is deprecated when targeting new OS versions
+ld: warning: non-standard -pagezero_size is deprecated when targeting macOS 13.0 or later

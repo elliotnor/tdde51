@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>tdde51</groupId>
+        <artifactId>tdde51-lab2</artifactId>
+        <version>1</version>
+    </parent>
+    <packaging>mvn-golang</packaging>
+    <artifactId>server</artifactId>
+
+    <build>
+        <!-- Changing standard Maven project source structure to make it Go compatible -->
+        <directory>${basedir}${file.separator}bin</directory>
+        <sourceDirectory>${basedir}${file.separator}src</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>com.igormaznitsa</groupId>
+                <artifactId>mvn-golang-wrapper</artifactId>
+                <version>2.3.10</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <id>dependency-get</id>
+                        <goals>
+                            <goal>get</goal>
+                        </goals>
+                        <configuration>
+                            <packages>
+                                <package>github.com/lib/pq</package>
+                                <package>github.com/mattn/go-sqlite3</package>
+                            </packages>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-todo</id>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <packages>
+                                <package>todo.go</package>
+                            </packages>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>tdde51</groupId>
+    <artifactId>tdde51-lab2</artifactId>
+    <version>1</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>client</module>
+        <module>server</module>
+        <module>plugin</module>
+    </modules>
+
+    <build>
+        <testSourceDirectory>${basedir}/server/src/tests</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+            </plugin>
+            <plugin>
+                <groupId>tdde51</groupId>
+                <artifactId>plugin</artifactId>
+                <version>1</version>
+                <!--<packaging>maven-plugin</packaging>-->        
+            </plugin>
+        </plugins>
+    </build>
+</project>
